@@ -5,11 +5,11 @@ It's a slow kludge at the moment.
 ## Command Line
 
 ```sh
-# npm install -g mastodon-create-account
-# mastodon-create-account test7 sandro+test7@example.org
+$ sudo npm install -g mastodon-create-account
+$ sudo mastodon-create-account test7 sandro+test7@example.org
 success, I think
 account-details-test7.json written
-# cat account-details-test7.json
+$ cat account-details-test7.json
 {
   "username": "test7",
   "email": "sandro+test7@example.org",
