@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+'use strict'  //  -*- mode: javascript -*- 
+
+const fs = require('fs')
+const Tilda = require('tilda')
+const pkg = require('../package.json')
+const acct = require('..')
+
+new Tilda({
+  name: 'mastodon-create-account',
+  version: pkg.version,
+  description: pkg.description,
+  examples: [
+    'mastodon-create-account sandro sandro@example.org"'
+  ],
+  args: [
+    { name: 'username', type: 'string', desc: 'unique name for this acct' },
+    { name: 'email', type: 'string', desc: 'unique recovery email' }
+  ]
+}).main(action => {
+  const filename = 'account-details-' + action.args.username + '.json'
+
+  fs.access(filename, fs.constants.R_OK, err => {
+    if (err === null) {
+      console.log('already registered? File exists:', filename)
+    } else if (err.code === 'ENOENT') {
+      acct.create_local_account(action.args.username, action.args.email)
+        .then(data => {
+          fs.writeFile(filename, JSON.stringify(data, null, 2), (err) => {
+            if (err) throw err
+            console.log(filename, 'written')
+          })
+        })
+    } else {
+      throw err
+    }
+  })
+})
+
+
+
+

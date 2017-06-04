@@ -1,0 +1,25 @@
+{
+  "name": "mastodon-create-account",
+  "version": "0.0.1",
+  "description": "create a user account from cmd line or function call",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandhawke/mastodon-create-account.git"
+  },
+  "keywords": [
+    "mastodon"
+  ],
+  "author": "Sandro Hawke (http://hawke.org/sandro)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sandhawke/mastodon-create-account/issues"
+  },
+  "homepage": "https://github.com/sandhawke/mastodon-create-account#readme",
+  "dependencies": {
+    "tilda": "^4.4.10"
+  }
+}
