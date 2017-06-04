@@ -1,6 +1,6 @@
 {
   "name": "mastodon-create-account",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "create a user account from cmd line or function call",
   "main": "index.js",
   "bin": "bin/mastodon-create-account",
